@@ -1,0 +1,63 @@
+<nav class="navbar navbar-expand-md navbar-dark bg-dark">
+    <div class="navbar-brand">
+        Asset Audit</div>
+
+    <!-- <ul class="navbar-nav" >
+       
+        <li><a *ngIf="this.email" href="/welcome/Verifier" class="nav-link">Home</a></li>
+      
+    </ul> -->
+
+    <ul class="navbar-nav navbar-collapse justify-content-end">
+            <li><a *ngIf="this.email" href="/login" class="nav-link">Login</a></li>
+            <li><a *ngIf="this.email" href="/register" class="nav-link">SignUp</a></li>
+            <li><a *ngIf="!this.email" href="/logout" class="nav-link">Logout</a></li>
+    </ul>
+</nav>
+
+<h1>Asset List for Verifier</h1>
+<div class="container">
+    <div style="overflow-x:auto;">
+<table class="table">
+  
+  <thead>
+    <tr>
+     
+      <th>Rfid Code</th>
+      <th>Name</th>
+      <th>Arrival Date</th>
+      <th>Status</th>
+      <th>Actions</th>
+      <th>Re-Verifiacation</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let asset of assets">
+ 
+  <td>{{asset.rfidCode}}</td>
+  <td>{{asset.name}}</td>
+  <td>{{asset.arrivalDate| date}}</td>
+  <td>{{asset.status}}</td>
+ <td *ngIf="!asset.status"><button (click)=updateVerification(asset.id) class="btn btn-warning">Verify</button></td>
+ <td *ngIf="asset.status"><button class="btn btn-success">Verified</button></td>
+ <td *ngIf="asset.status"><button (click)=updateVerification(asset.id) class="btn btn-warning">Re-Verification</button></td>
+
+</tr>
+  </tbody>
+</table>
+</div>
+<div class="row" class="text-right">
+  <!-- <button (click)="addAsset()"  class="btn btn-success">Send Mail</button> -->
+  <button (click)="toggle()" id="btToggle" class="btn btn-info btn-lg" >{{button_name}}</button>
+ <br><br>
+  <div *ngIf="show_dialog">
+      <fieldset class="form-group">
+          <label>Enter Email id</label>
+          <input type="text"  #name="ngModel" 
+          [(ngModel)]="Email.email" class="form-control" name="email" required="required">
+        </fieldset>
+        <button (click)="sendEmail()"  class="btn btn-success">Done</button> 
+  
+    </div>
+</div>
+</div>

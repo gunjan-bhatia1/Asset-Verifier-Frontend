@@ -1,0 +1,75 @@
+<nav class="navbar navbar-expand-md navbar-dark bg-dark">
+    <div class="navbar-brand">
+        Asset Audit</div>
+
+    <!-- <ul class="navbar-nav" >
+       
+        <li><a *ngIf="this.email" href="/welcome/Admin" class="nav-link">Home</a></li>
+      
+    </ul> -->
+
+    <ul class="navbar-nav navbar-collapse justify-content-end">
+            <li><a *ngIf="this.email" href="/login" class="nav-link">Login</a></li>
+            <li><a *ngIf="this.email" href="/register" class="nav-link">SignUp</a></li>
+            <li><a *ngIf="!this.email" href="/logout" class="nav-link">Logout</a></li>
+    </ul>
+</nav>
+<h1>Asset Details </h1>
+<div style="overflow-x:auto;">
+<div class="alert alert-success" *ngIf='message'>{{message}}</div>
+
+<div class="container">
+   
+<table class="table">
+  
+  <thead>
+    <tr>
+   
+      <th>Company Code</th>
+      <th>Category</th>
+      <th>Asset Type</th>
+      <th>Warranty No.</th>
+      <th >Quantity</th>
+      <th>Cost Center</th>
+      <th>Capitalization Date</th>
+     <!-- <th>Image</th>-->
+      <th>Location</th>
+      <th>Financial Data</th>
+      <th>Acquisation Value</th>
+      <th>Net Value</th>
+      <th width="170%">Description</th>
+
+     
+    </tr>
+  </thead>
+  <tbody>
+    <tr >
+  <!-- <td>{{asset.id}}</td> -->
+  
+  <td rowspan="2">{{asset.companyCode}}</td>
+  <td rowspan="2">{{asset.category}}</td>
+  <td rowspan="2">{{asset.assetType}}</td>
+  <td rowspan="2">{{asset.warrantyNumber}}</td>
+ <td rowspan="2">{{asset.quantity}}</td>
+  <td rowspan="2">{{asset.costCenter}}</td>
+  <td rowspan="2">{{asset.capitalizationDate |date }}</td>
+ <!-- <td rowspan="2">{{asset.image}}</td>-->
+  <td rowspan="2">{{asset.location}}</td>
+  <td rowspan="2">{{asset.financialData}}</td>
+  <td rowspan="2">{{asset.acquisationValue}}</td>
+  <td rowspan="2">{{asset.netValue}}</td>
+  <td rowspan="2">{{asset.description}}</td>
+  
+  
+  
+</tr>
+  </tbody>
+</table>
+<div class="row">
+  <button (click)="Back()" class="btn btn-success">Back</button>
+ </div>
+
+
+<!-- </div> -->
+</div>
+</div>

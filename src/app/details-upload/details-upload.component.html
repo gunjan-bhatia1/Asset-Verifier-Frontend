@@ -1,0 +1,18 @@
+<nav class="navbar navbar-expand-md navbar-dark bg-dark">
+        <div class="navbar-brand">
+            Asset Audit</div>
+
+        <!-- <ul class="navbar-nav" >
+           
+            <li><a *ngIf="this.email" href="/welcome/Verifier" class="nav-link">Home</a></li>
+          
+        </ul> -->
+
+        <ul class="navbar-nav navbar-collapse justify-content-end">
+                <li><a *ngIf="this.email" href="/login" class="nav-link">Login</a></li>
+                <li><a *ngIf="this.email" href="/register" class="nav-link">SignUp</a></li>
+                <li><a *ngIf="!this.email" href="/logout" class="nav-link">Logout</a></li>
+        </ul>
+    </nav>
+
+<img src="{{fileUpload}}" alt="{{fileUpload}}" style="max-width:350px" />

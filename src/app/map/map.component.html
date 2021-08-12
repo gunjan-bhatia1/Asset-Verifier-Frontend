@@ -1,0 +1,56 @@
+<!-- <h1>Your Information</h1>
+<agm-map [latitude]="lat" [longitude]="lng">
+  <agm-marker  [latitude]="lat" [longitude]="lng"
+</agm-map> -->
+
+<nav class="navbar navbar-expand-md navbar-dark bg-dark">
+  <div class="navbar-brand">
+      Asset Audit</div>
+
+  <ul class="navbar-nav" >
+     
+      <li><a *ngIf="this.email" href="/welcome/Admin" class="nav-link">Home</a></li>
+    
+  </ul>
+
+  <ul class="navbar-nav navbar-collapse justify-content-end">
+          <li><a *ngIf="this.email" href="/login" class="nav-link">Login</a></li>
+          <li><a *ngIf="this.email" href="/register" class="nav-link">SignUp</a></li>
+          <li><a *ngIf="!this.email" href="/logout" class="nav-link">Logout</a></li>
+  </ul>
+</nav>
+<div class="container">
+  <div style="text-align:center">
+    <h1>
+      Google Map Geolocation Of Asset
+    </h1>
+  </div>
+
+  <div class="alert alert-warning">
+   <!-- Note: Once Track me is enabled, refresh page to enable Find me feature!-->
+   Note: Reporting Location
+  </div>
+  <div>
+   <!-- <div>
+      <button [disabled]="isTracking" class="btn btn-primary" (click)="findMe()">Find me</button>
+      <button class="btn btn-primary" (click)="trackMe()">Track me</button>
+    </div>-->
+    <div class="text-white">
+      <span>Latitude: {{currentLat}}</span>
+      <span>Longitude: {{currentLong}}</span>
+    </div>
+    <br>
+    <div class="row">
+      <div class="col-md-12">
+        <div class="text-center">
+          <h3>
+            <div #gmap style="width:100%;height:300px"></div>
+          </h3>
+        </div>
+      </div>
+    </div>
+  </div>
+  <br>
+  
+</div>
+

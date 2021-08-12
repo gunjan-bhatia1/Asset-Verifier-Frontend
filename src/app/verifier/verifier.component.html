@@ -1,0 +1,93 @@
+<nav class="navbar navbar-expand-md navbar-dark bg-dark">
+  <div class="navbar-brand">
+      Asset Audit</div>
+
+
+
+  <ul class="navbar-nav navbar-collapse justify-content-end">
+          <li><a *ngIf="this.email" href="/login" class="nav-link">Login</a></li>
+          <li><a *ngIf="this.email" href="/register" class="nav-link">SignUp</a></li>
+          <li><a *ngIf="!this.email" href="/logout" class="nav-link">Logout</a></li>
+  </ul>
+</nav>
+
+
+    <H1>Verify Asset</H1>
+
+<div class="container">
+  
+    <div class="alert alert-warning" *ngIf="assetsForm.dirty && assetsForm.invalid">Enter valid Details</div>
+    
+    
+    <form (ngSubmit)="!assetsForm.invalid&&saveAsset()" #assetsForm="ngForm">
+
+      
+        <fieldset  class="form-group" >
+            <label >Found</label>
+            <input type="text" #image="ngModel" 
+            [(ngModel)]="asset.found"  class="form-control" name="found" required="required">
+            </fieldset>
+
+            <fieldset  class="form-group" >
+                <label >Not Found</label>
+                <input type="text" #image="ngModel" 
+                [(ngModel)]="asset.notFound"  class="form-control" name="notFound" required="required">
+                </fieldset>
+      
+  <fieldset  class="form-group">
+      <label>Verification Date</label>
+      <input type="date" #verificationDate="ngModel" 
+       [ngModel]="asset.verificationDate| date:'yyyy-MM-dd'"
+       (ngModelChange)="asset.verificationDate=$event"
+       class="form-control" name="arrivalDate" required="required">
+  </fieldset>
+
+
+<!--<fieldset *ngIf="asset.found==='true'" class="form-group" >
+<label >Present Image</label>
+<input type="text" #image="ngModel" 
+[(ngModel)]="asset.presentImage"  class="form-control" name="presentImage" required="required">
+</fieldset>-->
+
+<fieldset  *ngIf="asset.found==='true'" class="form-group" >
+ 
+    <button #presentLocation="ngModel" (click)=reportLocation(asset.id)
+    [(ngModel)]="asset.presentLocation"  class="form-control" name="presentLocation"   class="btn btn-success">Report Location</button>
+    <!-- <input type="text" #presentLocation="ngModel" 
+    [(ngModel)]="asset.presentLocation"  class="form-control" name="presentLocation" required="required"> -->
+    </fieldset>
+    
+<fieldset *ngIf="asset.found==='true'" class="form-group">
+  <label>Present Value</label>
+  <input type="text" #presentValue="ngModel" 
+  [(ngModel)]="asset.presentValue"  class="form-control" name="presentValue" required="required">
+</fieldset>
+
+<fieldset  class="form-group">
+  <label>Status</label>
+  <input type="text" #status="ngModel" 
+  [(ngModel)]="asset.status"  class="form-control" name="status" required="required">
+</fieldset>
+
+
+    <fieldset  *ngIf="asset.notFound==='true'" class="form-group" >
+        <label >Item Sold</label>
+        <input type="text" #itemSold="ngModel" 
+        [(ngModel)]="asset.itemSold"  class="form-control" name="itemSold" required="required">
+        </fieldset>
+
+        <fieldset *ngIf="asset.notFound==='true'" class="form-group" >
+            <label >Item Transferred</label>
+            <input type="text" #itemTransferred="ngModel" 
+            [(ngModel)]="asset.itemTransferred"  class="form-control" name="itemTransferred" required="required">
+            </fieldset>
+
+<fieldset class="form-group">
+    <label>Comments</label>
+    <br> <textarea type="text" rows="4" cols="20" #comments="ngModel" 
+    [(ngModel)]="asset.comments" class="form-control" name="comments" required="required"></textarea>
+  </fieldset> 
+
+  <button type="submit" class="btn btn-success" >Save</button>
+</form>
+</div>

@@ -1,0 +1,66 @@
+<nav class="navbar navbar-expand-md navbar-dark bg-dark">
+    <div class="navbar-brand">
+        Asset Audit</div>
+
+    <!-- <ul class="navbar-nav" >
+       
+        <li><a *ngIf="this.email" href="/welcome/Verifier" class="nav-link">Home</a></li>
+      
+    </ul> -->
+
+    <ul class="navbar-nav navbar-collapse justify-content-end">
+            <li><a *ngIf="this.email" href="/login" class="nav-link">Login</a></li>
+            <li><a *ngIf="this.email" href="/register" class="nav-link">SignUp</a></li>
+            <li><a *ngIf="!this.email" href="/logout" class="nav-link">Logout</a></li>
+    </ul>
+</nav>
+
+<h1>Asset List for Admin</h1>
+
+<div class="alert alert-success" *ngIf='message'>{{message}}</div>
+
+<div class="container">
+    <!-- <div style="overflow-x:auto;"> -->
+<table class="table">
+  
+  <thead>
+    <tr>
+      <!-- <th>Id</th> -->
+      <th>Rfid Code</th>
+      <th>Name</th>
+      <th>Arrival Date</th>
+      <th>Status</th>
+      <th>Update</th>
+      <th>Delete</th>
+      <th> Asset Details
+      </th>
+     
+      
+      <th>Verified Data</th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let asset of assets">
+  <!-- <td>{{asset.id}}</td> -->
+  <td>{{asset.rfidCode}}</td>
+  <td>{{asset.name}}</td>
+  <td>{{asset.arrivalDate| date}}</td>
+  <td>{{asset.status}}</td>
+  <td><button (click)="updateAsset(asset.id)" class="btn btn-success">Update</button></td>
+ 
+ <td><button (click)="deleteAsset(asset.id)" class="btn btn-warning">Delete Asset</button></td>
+  <td><button (click)="viewAssetDetails(asset.id)" class="btn btn-success">Show Details</button></td>
+ <td *ngIf="asset.status"><button (click)=showVerifideData(asset.id) class="btn btn-success">Verified Data</button></td>
+ 
+ <td *ngIf="!asset.status"><button  class="btn btn-warning">Not Verified</button></td>
+
+</tr>
+  </tbody>
+</table>
+<div class="row">
+  <button (click)="addAsset()" class="btn btn-success">Add</button>
+</div>
+
+<!-- </div> -->
+</div>

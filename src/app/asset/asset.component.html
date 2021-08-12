@@ -1,0 +1,148 @@
+<nav class="navbar navbar-expand-md navbar-dark bg-dark">
+    <div class="navbar-brand">
+        Asset Audit</div>
+
+    
+
+    <ul class="navbar-nav navbar-collapse justify-content-end">
+     
+            <li><a *ngIf="this.email" href="/login" class="nav-link">Login</a></li>
+            <li><a *ngIf="this.email" href="/register" class="nav-link">SignUp</a></li>
+            <li><a *ngIf="!this.email" href="/logout" class="nav-link">Logout</a></li>
+    </ul>
+</nav>
+
+
+<H1>Asset</H1>
+
+<div class="container">
+  
+    <div class="alert alert-warning" *ngIf="assetForm.dirty && assetForm.invalid">Enter valid Details</div>
+    
+  <form (ngSubmit)="!assetForm.invalid&&saveAsset()" #assetForm="ngForm">
+      <fieldset class="form-group">
+          <label>Rfid Code</label>
+          <input type="text" #rfidCode="ngModel" 
+          
+      
+    [(ngModel)]="asset.rfidCode" class="form-control" name="rfidCode" required="required">
+        </fieldset> 
+       
+    <fieldset class="form-group">
+    <label>Name</label>
+    <input type="text"  #name="ngModel" 
+    [(ngModel)]="asset.name" class="form-control" name="name" required="required">
+  </fieldset>
+
+  <fieldset class="form-group">
+      <label>Arrival Date</label>
+      <input type="date" #arrivalDate="ngModel" 
+
+       [ngModel]="asset.arrivalDate| date:'yyyy-MM-dd'"
+       (ngModelChange)="asset.arrivalDate=$event"
+       class="form-control" name="arrivalDate" required="required">
+  </fieldset>
+
+
+  <!-- <fieldset class="form-group">
+    <label>Status</label>
+    <input type="text" #status="ngModel" 
+    [(ngModel)]="asset.status"  class="form-control" name="status" required="required">
+</fieldset> -->
+
+<fieldset class="form-group">
+    <label>Company Code</label>
+    <input type="text"  #companyCode="ngModel" 
+    [(ngModel)]="asset.companyCode" class="form-control" name="companyCode" required="required">
+  </fieldset>
+
+
+  <fieldset class="form-group">
+      <label>Category</label>
+      <input type="text"  #companyCode="ngModel" 
+      [(ngModel)]="asset.category" class="form-control" name="category" required="required">
+    </fieldset>
+
+    
+    
+      <fieldset class="form-group">
+          <label>Asset Type</label>
+          <input type="text" rows="4" cols="20" #assetType="ngModel" 
+          [(ngModel)]="asset.assetType" class="form-control" name="assetType" required="required">
+        </fieldset>
+      
+
+        <fieldset class="form-group">
+            <label>Description</label>
+            <br> <textarea type="text" rows="4" cols="20" #description="ngModel" 
+            [(ngModel)]="asset.description" class="form-control" name="description" required="required"></textarea>
+          </fieldset> 
+        
+
+       <fieldset class="form-group">
+        <label>Warranty Number</label>
+        <input type="text" #warrantyNumber="ngModel"
+        [(ngModel)]="asset.warrantyNumber"  class="form-control" name="warrantyNumber" required="required">
+      </fieldset> 
+
+   <fieldset class="form-group">
+  <label>Quantity</label>
+  <input type="text"  #name="ngModel" 
+  [(ngModel)]="asset.quantity" class="form-control" name="quantity" required="required">
+</fieldset>
+
+
+
+<fieldset class="form-group">
+    <label>Cost Center</label>
+    <input type="text" #costCenter="ngModel" 
+    [(ngModel)]="asset.costCenter"
+     class="form-control" name="costCenter" required="required">
+</fieldset>
+
+<fieldset class="form-group">
+  <label>Capitalization Date</label>
+  <input type="date" #capitalizationDate="ngModel" 
+
+   [ngModel]="asset.capitalizationDate| date:'yyyy-MM-dd'"
+   (ngModelChange)="asset.capitalizationDate=$event"
+   class="form-control" name="capitalizationDate" required="required">
+</fieldset>
+
+
+<!--<fieldset class="form-group">
+<label>Upload Image</label>
+<input type="text" #image="ngModel" 
+[(ngModel)]="asset.image"  class="form-control" name="image" required="required">
+</fieldset>-->
+
+<fieldset class="form-group">
+<label>Location</label>
+<input type="text" #location="ngModel" 
+[(ngModel)]="asset.location"  class="form-control" name="location" required="required">
+</fieldset>
+
+<fieldset class="form-group">
+<label>Financial Data</label>
+<input type="text" #financialData="ngModel" 
+[(ngModel)]="asset.financialData"  class="form-control" name="financialData" required="required">
+</fieldset>
+
+<fieldset class="form-group">
+  <label>Acquisation Value</label>
+  <input type="text" #acquisationValue="ngModel" 
+  [(ngModel)]="asset.acquisationValue"  class="form-control" name="acquisationValue" required="required">
+</fieldset>
+
+<fieldset class="form-group">
+    <label>Net Value</label>
+    <input type="text" #netValue="ngModel" 
+    [(ngModel)]="asset.netValue"  class="form-control" name="netValue" required="required">
+  </fieldset>
+  
+
+
+
+  <button type="submit" class="btn btn-success" >Save</button>
+</form>
+</div>

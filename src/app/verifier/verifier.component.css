@@ -1,0 +1,8 @@
+
+#sample {border:1px solid #666;text-align:center;}
+#sample h2 {text-align:center;}
+#sample p {text-align:center;padding:.4em 3em;}
+#my-form .data-entry {padding:.5em 8%;}
+#my-form textarea {padding: 1em 8%;}
+#my-form .button {width:80px;height:30px;font-size:110%;margin:.4em;}
+#my-form #align {box-sizing:border-box;width:96%;text-align:center;margin:0 2%;padding:2em;}
